@@ -15,6 +15,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+      
+      # Add CI checks before preview deploy
+      - run: npm ci
+      - run: npm run lint --if-present
+      - run: npm run typecheck --if-present
+      - run: npm test --if-present
+      
+      # Deploy to Vercel preview
       - run: npm i -g vercel@latest
       - run: vercel pull --yes --environment=preview --token=$VERCEL_TOKEN
       - run: vercel build --token=$VERCEL_TOKEN
