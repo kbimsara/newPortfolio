@@ -1,16 +1,24 @@
 export default function Skills() {
   const skillCategories = [
     {
-      category: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js", "HTML/CSS"]
+      category: "Programming Languages",
+      skills: ["Java", "Python", "PHP", "C", "JavaScript", "TypeScript", "HTML/CSS", "SQL"]
     },
     {
-      category: "Backend",
-      skills: ["Node.js", "Express", "Python", "FastAPI", "PostgreSQL", "MongoDB"]
+      category: "Frameworks & Libraries",
+      skills: ["React", "React Native", "Next.js", "Node.js", "Express.js", "Laravel", "Bootstrap", "Tailwind CSS", "Flutter", "PyQt5", "Ajax"]
     },
     {
-      category: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "Jest"]
+      category: "Databases & Cloud",
+      skills: ["MySQL", "MongoDB", "SQLite", "AWS", "Azure", "MongoDB Atlas"]
+    },
+    {
+      category: "Tools & Technologies",
+      skills: ["Git", "Docker", "VS Code", "Android Studio", "IntelliJ IDEA", "PhpStorm", "PyCharm", "NetBeans", "Adobe XD", "Photoshop", "Vercel", "Nginx"]
+    },
+    {
+      category: "Concepts & Practices",
+      skills: ["OOP", "REST API", "Web Design", "UI/UX Design", "Responsive Design", "cURL", "Socket.io", "Arduino", "Load Balancing"]
     }
   ];
 
@@ -22,27 +30,24 @@ export default function Skills() {
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-12"></div>
         
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <div 
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <span className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mr-3"></span>
                 {category.category}
               </h3>
-              <div className="space-y-3">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
-                  <div 
+                  <span 
                     key={i}
-                    className="flex items-center space-x-3 group"
+                    className="px-3 py-1.5 text-sm font-medium bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-gray-700 dark:text-gray-300 rounded-full hover:from-blue-100 hover:to-purple-100 dark:hover:from-blue-900/50 dark:hover:to-purple-900/50 transition-all duration-200 cursor-default"
                   >
-                    <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full group-hover:scale-150 transition-transform"></div>
-                    <span className="text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                      {skill}
-                    </span>
-                  </div>
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
