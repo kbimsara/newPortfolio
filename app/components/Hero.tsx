@@ -4,7 +4,7 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center">
         <div className="mb-8 animate-fade-in">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
-            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Your Name</span>
+            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">Jhone Wick</span>
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-6">
             Full Stack Developer & Designer
