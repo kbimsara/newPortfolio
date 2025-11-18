@@ -78,17 +78,6 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-
-            <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Education</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                <strong>B.Sc. Hons in Software Engineering</strong>
-              </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                SLTC Research University, Padukka
-              </p>
-              <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">2022 - Present</p>
-            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">

@@ -26,6 +26,15 @@ export default function Experience() {
       description: "Pursuing a comprehensive software engineering degree with focus on modern development practices, algorithms, and software architecture."
     },
     {
+      degree: "DevOps Engineer Masters Program",
+      institution: "Netxperts Solutions",
+      location: "Professional Certification",
+      period: "2025",
+      status: "Completed",
+      description: "Comprehensive DevOps training covering CI/CD, automation, and cloud infrastructure management. Gained hands-on experience with Linux, Shell Scripting, Git, Maven, Tomcat, Jenkins, Docker, Kubernetes, Ansible, AWS Cloud, SonarQube, Nexus, Apache HTTP Server, and monitoring tools (Grafana & Prometheus).",
+      technologies: ["Linux", "Shell Scripting", "Git", "Maven", "Tomcat", "Jenkins", "Docker", "Kubernetes", "Ansible", "AWS", "SonarQube", "Nexus", "Apache", "Grafana", "Prometheus"]
+    },
+    {
       degree: "Software Developer",
       institution: "Vocational Training Authority",
       location: "Kalutara South",
@@ -163,9 +172,27 @@ export default function Experience() {
                   </div>
                 </div>
                 
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
                   {edu.description}
                 </p>
+                
+                {edu.technologies && (
+                  <div>
+                    <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
+                      Technologies & Tools:
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {edu.technologies.map((tech, i) => (
+                        <span 
+                          key={i}
+                          className="px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
