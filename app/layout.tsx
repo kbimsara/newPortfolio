@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Your Name",
-  description: "Full Stack Developer & Designer Portfolio",
+  title: "Kavindu Bimsara - Software Engineer Portfolio",
+  description: "Software Engineering student specializing in Web, Desktop, and Mobile application development. Proficient in Java, Python, PHP, JavaScript, React, Node.js, and more.",
 };
 
 export default function RootLayout({
