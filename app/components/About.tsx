@@ -10,7 +10,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              I'm a passionate developer with a keen eye for design and a love for creating seamless user experiences. 
+              I&apos;m a passionate developer with a keen eye for design and a love for creating seamless user experiences. 
               With expertise in modern web technologies, I bring ideas to life through clean, efficient code.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -18,7 +18,7 @@ export default function About() {
               I specialize in building responsive, accessible, and performant applications that users love.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
+              When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, 
               or sharing knowledge with the developer community.
             </p>
           </div>

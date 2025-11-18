@@ -32,7 +32,7 @@ export default function Contact() {
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
         <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
-          Have a project in mind? Let's work together to bring your ideas to life.
+          Have a project in mind? Let&apos;s work together to bring your ideas to life.
         </p>
         
         <div className="grid md:grid-cols-2 gap-12">
