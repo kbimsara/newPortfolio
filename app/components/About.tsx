@@ -20,7 +20,7 @@ export default function About() {
             </h2>
             <div className="space-y-4 mt-10 text-slate-400 leading-relaxed">
               <p>
-                I'm a <span className="text-white font-medium">Software Engineering undergraduate</span> at
+                I&apos;m a <span className="text-white font-medium">Software Engineering undergraduate</span> at
                 SLTC Research University with hands-on experience in full-stack development and
                 cloud infrastructure.
               </p>
