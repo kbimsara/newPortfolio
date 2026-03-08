@@ -11,7 +11,9 @@
       "Bash(npm install jose)",
       "Bash(npx tsc --noEmit)",
       "Bash(npx next build)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(MONGODB_URI=\"\" npx next build)",
+      "Bash(echo \"Exit code: $?\")"
     ]
   }
 }
