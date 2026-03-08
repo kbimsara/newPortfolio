@@ -79,7 +79,6 @@ const COMMANDS: Record<string, () => string[]> = {
   ],
   contact: () => [
     '<span class="text-blue-400">Email   :</span> kavidubim2gamaethige@gmail.com',
-    '<span class="text-blue-400">Phone   :</span> +94 71 49 85 833',
     '<span class="text-blue-400">GitHub  :</span> github.com/kbimsara',
     '<span class="text-blue-400">LinkedIn:</span> linkedin.com/in/kavidu-bimsara',
   ],
