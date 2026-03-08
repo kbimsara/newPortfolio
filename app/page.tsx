@@ -7,6 +7,8 @@ import Projects from './components/Projects';
 import Terminal from './components/Terminal';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import TypingText from './components/TypingText';
+import VisitorCounter from './components/VisitorCounter';
 
 export default function Home() {
   return (
@@ -15,7 +17,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative h-screen overflow-hidden">
-        {/* Star background — full canvas but only right half shows the model */}
+        {/* 3D canvas background */}
         <div className="absolute inset-0">
           <SpaceStationWrapper />
         </div>
@@ -30,19 +32,35 @@ export default function Home() {
         <div className="relative z-10 h-full max-w-6xl mx-auto px-8 flex items-center">
           {/* Left — text */}
           <div className="w-full md:w-1/2 flex flex-col justify-center">
-            <p className="text-sm uppercase tracking-[0.3em] text-blue-400 mb-5 opacity-0 animate-fade-in-up delay-100" style={{ animationFillMode: 'forwards' }}>
-              Software Engineer · DevOps Engineer
-            </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight opacity-0 animate-fade-in-up delay-200" style={{ animationFillMode: 'forwards' }}>
+
+            {/* Typing role badge */}
+            <div
+              className="flex items-center gap-2 text-sm tracking-[0.15em] uppercase mb-5 opacity-0 animate-fade-in-up delay-100"
+              style={{ animationFillMode: 'forwards' }}
+            >
+              <TypingText />
+            </div>
+
+            <h1
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight opacity-0 animate-fade-in-up delay-200"
+              style={{ animationFillMode: 'forwards' }}
+            >
               <span className="gradient-text">Kavindu</span>
               <br />
               <span className="text-white">Bimsara</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-400 max-w-md leading-relaxed opacity-0 animate-fade-in-up delay-300" style={{ animationFillMode: 'forwards' }}>
+
+            <p
+              className="text-base sm:text-lg text-slate-400 max-w-md leading-relaxed opacity-0 animate-fade-in-up delay-300"
+              style={{ animationFillMode: 'forwards' }}
+            >
               Building scalable systems that bridge software engineering and cloud infrastructure.
             </p>
 
-            <div className="flex items-center gap-4 mt-8 opacity-0 animate-fade-in-up delay-400" style={{ animationFillMode: 'forwards' }}>
+            <div
+              className="flex items-center gap-4 mt-8 opacity-0 animate-fade-in-up delay-400"
+              style={{ animationFillMode: 'forwards' }}
+            >
               <a
                 href="#projects"
                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/30 text-sm"
@@ -55,6 +73,14 @@ export default function Home() {
               >
                 Get in Touch
               </a>
+            </div>
+
+            {/* Visitor counter */}
+            <div
+              className="mt-8 opacity-0 animate-fade-in-up delay-500"
+              style={{ animationFillMode: 'forwards' }}
+            >
+              <VisitorCounter />
             </div>
           </div>
         </div>
@@ -92,7 +118,7 @@ export default function Home() {
           <span className="text-blue-500/60">2025</span>
         </p>
         <p className="text-slate-700 text-xs mt-2">
-          Built with Next.js · Three.js · Tailwind CSS
+          Built with Next.js · Three.js · Tailwind CSS · MongoDB
         </p>
       </footer>
     </main>

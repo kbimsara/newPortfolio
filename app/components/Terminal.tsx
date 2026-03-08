@@ -108,11 +108,13 @@ export default function Terminal() {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIdx, setHistoryIdx] = useState(-1);
   const [suggestion, setSuggestion] = useState('');
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
   }, [lines]);
 
   const handleInput = (val: string) => {
@@ -181,7 +183,7 @@ export default function Terminal() {
           </div>
 
           {/* Output */}
-          <div className="bg-[#0d0d1a] p-5 h-80 overflow-y-auto font-mono text-sm leading-relaxed cursor-text">
+          <div ref={scrollRef} className="bg-[#0d0d1a] p-5 h-80 overflow-y-auto font-mono text-sm leading-relaxed cursor-text">
             {lines.map((line, i) => (
               <div key={i} className="flex items-start gap-2 min-h-[1.5rem]">
                 {line.type === 'input' && (
@@ -220,7 +222,6 @@ export default function Terminal() {
                   value={input}
                   onChange={(e) => handleInput(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  autoFocus
                   autoComplete="off"
                   spellCheck={false}
                   className="w-full bg-transparent text-white outline-none caret-blue-400 relative z-10"
@@ -228,7 +229,6 @@ export default function Terminal() {
                 />
               </div>
             </div>
-            <div ref={bottomRef} />
           </div>
 
           {/* Hint bar */}
