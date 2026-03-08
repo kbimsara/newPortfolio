@@ -1,198 +1,98 @@
+'use client';
+
+const experiences = [
+  {
+    title: 'Intern DevOps Engineer',
+    company: 'Behaviol Pty Ltd',
+    period: 'Nov 2025 – Present',
+    type: 'Current',
+    color: 'blue',
+    bullets: [
+      'Containerized applications using Docker and managed deployments on Kubernetes (GCP)',
+      'Provisioned cloud infrastructure on GCP using Terraform following IaC best practices',
+      'Built and maintained CI/CD pipelines with GitHub Actions and Jenkins',
+      'Wrote Bash scripts to automate operational tasks and reduce manual effort',
+      'Configured Grafana and Prometheus dashboards to monitor system health and metrics',
+    ],
+    tags: ['Docker', 'Kubernetes', 'GCP', 'Terraform', 'GitHub Actions', 'Jenkins', 'Grafana', 'Prometheus'],
+  },
+  {
+    title: 'Software Developer Trainee',
+    company: 'Mahapola Ports And Maritime Academy',
+    period: 'Jul 2022 – Jan 2023',
+    type: 'Internship',
+    color: 'cyan',
+    bullets: [
+      'Designed and managed SQL-based relational databases',
+      'Developed responsive UI components using Bootstrap CSS and dynamic tables with Ajax',
+      'Implemented client-side user validation using JavaScript',
+      'Built reusable server-side components with PHP',
+    ],
+    tags: ['PHP', 'MySQL', 'JavaScript', 'Ajax', 'Bootstrap'],
+  },
+];
+
 export default function Experience() {
-  const experiences = [
-    {
-      role: "Software Developer Trainee",
-      company: "Mahapola Ports And Maritime Academy",
-      period: "July 2022 - January 2023",
-      duration: "7 months",
-      description: "Developed and maintained web applications using modern technologies. Worked on full-stack development projects with a focus on creating efficient and scalable solutions.",
-      technologies: ["PHP", "JavaScript", "HTML", "CSS", "SQL", "Ajax", "MySQL", "Bootstrap 4.6/5", "OOP"],
-      highlights: [
-        "Built responsive web applications using PHP and JavaScript",
-        "Implemented database solutions with MySQL",
-        "Applied OOP principles for maintainable code architecture",
-        "Collaborated with team members on various projects"
-      ]
-    }
-  ];
-
-  const education = [
-    {
-      degree: "B.Sc. Hons in Software Engineering",
-      institution: "SLTC Research University",
-      location: "Padukka, Sri Lanka",
-      period: "2022 - Present",
-      status: "Undergraduate",
-      description: "Pursuing a comprehensive software engineering degree with focus on modern development practices, algorithms, and software architecture."
-    },
-    {
-      degree: "DevOps Engineer Masters Program",
-      institution: "Netxperts Solutions",
-      location: "Professional Certification",
-      period: "2025",
-      status: "Completed",
-      description: "Comprehensive DevOps training covering CI/CD, automation, and cloud infrastructure management. Gained hands-on experience with Linux, Shell Scripting, Git, Maven, Tomcat, Jenkins, Docker, Kubernetes, Ansible, AWS Cloud, SonarQube, Nexus, Apache HTTP Server, and monitoring tools (Grafana & Prometheus).",
-      technologies: ["Linux", "Shell Scripting", "Git", "Maven", "Tomcat", "Jenkins", "Docker", "Kubernetes", "Ansible", "AWS", "SonarQube", "Nexus", "Apache", "Grafana", "Prometheus"]
-    },
-    {
-      degree: "Software Developer",
-      institution: "Vocational Training Authority",
-      location: "Kalutara South",
-      period: "2021 - 2022",
-      status: "NVQ Level 4",
-      description: "Completed vocational training in software development with practical hands-on experience."
-    },
-    {
-      degree: "GCE Advanced Level",
-      institution: "Kalutara Vidyalaya",
-      location: "Kalutara",
-      period: "2020",
-      status: "2C, 1S",
-      description: "Completed Advanced Level examination in Technology stream."
-    },
-    {
-      degree: "Certificate in Applied Information Technology",
-      institution: "SLT Moratuwa",
-      location: "Moratuwa",
-      period: "2018",
-      status: "Completed",
-      description: "Foundational IT certification covering essential computer skills and technologies."
-    }
-  ];
-
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold text-center text-gray-900 dark:text-white mb-4">
-          Experience & Education
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-12"></div>
-        
-        {/* Work Experience Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
-            <span className="w-3 h-3 bg-blue-600 rounded-full mr-3"></span>
-            Work Experience
-          </h3>
-          
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div 
-                key={index}
-                className="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-blue-600"
-              >
-                <div className="flex flex-wrap justify-between items-start mb-4">
-                  <div>
-                    <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                      {exp.role}
-                    </h4>
-                    <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold mb-1">
-                      {exp.company}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {exp.period} · {exp.duration}
-                    </p>
+    <section id="experience" className="py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">Career</p>
+        <h2 className="text-4xl font-bold text-white mb-16 section-heading">Experience</h2>
+
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-cyan-500 to-transparent" />
+
+          <div className="space-y-12">
+            {experiences.map((exp, i) => (
+              <div key={i} className="relative pl-10">
+                {/* Dot */}
+                <div className={`absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
+                  exp.color === 'blue'
+                    ? 'bg-blue-500 border-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.8)]'
+                    : 'bg-cyan-500 border-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.8)]'
+                }`} />
+
+                <div className="glass rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 group">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4">
+                    <div>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                          {exp.title}
+                        </h3>
+                        {exp.type === 'Current' && (
+                          <span className="px-2 py-0.5 bg-green-500/20 border border-green-500/40 text-green-400 text-xs rounded-full">
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <p className={`font-medium mt-1 ${exp.color === 'blue' ? 'text-blue-400' : 'text-cyan-400'}`}>
+                        {exp.company}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-slate-500 text-sm whitespace-nowrap">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {exp.period}
+                    </div>
                   </div>
-                </div>
-                
-                <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  {exp.description}
-                </p>
-                
-                <div className="mb-4">
-                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                    Key Highlights:
-                  </h5>
-                  <ul className="space-y-2">
-                    {exp.highlights.map((highlight, i) => (
-                      <li key={i} className="flex items-start">
-                        <svg className="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-gray-600 dark:text-gray-400 text-sm">
-                          {highlight}
-                        </span>
+
+                  <ul className="space-y-2 mb-5">
+                    {exp.bullets.map((b, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-slate-400 text-sm leading-relaxed">
+                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${exp.color === 'blue' ? 'bg-blue-400' : 'bg-cyan-400'}`} />
+                        {b}
                       </li>
                     ))}
                   </ul>
-                </div>
-                
-                <div>
-                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                    Tech Stack:
-                  </h5>
+
                   <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, i) => (
-                      <span 
-                        key={i}
-                        className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full"
-                      >
-                        {tech}
-                      </span>
+                    {exp.tags.map((tag) => (
+                      <span key={tag} className="tech-badge">{tag}</span>
                     ))}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Education Section */}
-        <div>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
-            <span className="w-3 h-3 bg-purple-600 rounded-full mr-3"></span>
-            Education
-          </h3>
-          
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <div 
-                key={index}
-                className="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-purple-600"
-              >
-                <div className="flex flex-wrap justify-between items-start mb-3">
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">
-                      {edu.degree}
-                    </h4>
-                    <p className="text-lg text-purple-600 dark:text-purple-400 font-semibold mb-1">
-                      {edu.institution}
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {edu.location}
-                    </p>
-                  </div>
-                  <div className="text-right mt-2 sm:mt-0">
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                      {edu.period}
-                    </p>
-                    <span className="inline-block mt-1 px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
-                      {edu.status}
-                    </span>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                  {edu.description}
-                </p>
-                
-                {edu.technologies && (
-                  <div>
-                    <h5 className="text-sm font-semibold text-gray-900 dark:text-white mb-3">
-                      Technologies & Tools:
-                    </h5>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.technologies.map((tech, i) => (
-                        <span 
-                          key={i}
-                          className="px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </div>
