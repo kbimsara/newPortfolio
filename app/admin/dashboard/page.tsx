@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface Message {
   _id: string;
@@ -113,9 +114,9 @@ export default function AdminDashboard() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href="/" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+            <Link href="/" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
               View site →
-            </a>
+            </Link>
             <button
               onClick={handleLogout}
               className="text-xs bg-white/5 hover:bg-white/10 border border-white/10 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg transition-colors"
