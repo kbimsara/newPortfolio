@@ -30,6 +30,19 @@ const projects = [
     github: `${GH}/todo_infrastructure`,
     stars: null,
   },
+  {
+    title: 'TripGo – AI Trip Planner',
+    year: '2025',
+    type: 'AI / Full-Stack',
+    typeColor: 'pink',
+    description:
+      'AI-powered travel itinerary generator that creates day-by-day trip plans with GPS-validated locations, real road routing, and an interactive map. Prevents AI hallucination via bounding-box filtering and haversine checks. Supports Claude, OpenRouter, and Ollama.',
+    tech: ['Next.js', 'TypeScript', 'Claude AI', 'MongoDB', 'Leaflet', 'NextAuth', 'Tailwind'],
+    featured: true,
+    icon: '✈',
+    github: `${GH}/tripGo`,
+    stars: null,
+  },
   // ── GRID ──────────────────────────────────────────────────
   {
     title: 'LMS Cloud Infrastructure (AWS)',
