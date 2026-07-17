@@ -2,11 +2,20 @@
 
 const experiences = [
   {
-    title: 'Intern DevOps Engineer',
+    title: 'Associate DevOps Engineer',
     company: 'Behaviol Pty Ltd',
-    period: 'Nov 2025 – Present',
+    period: 'May 2026 – Present',
     type: 'Current',
     color: 'blue',
+    bullets: [],
+    tags: [],
+  },
+  {
+    title: 'Intern DevOps Engineer',
+    company: 'Behaviol Pty Ltd',
+    period: 'Nov 2025 – May 2026',
+    type: 'Internship',
+    color: 'cyan',
     bullets: [
       'Containerized applications using Docker and managed deployments on Kubernetes (GCP)',
       'Provisioned cloud infrastructure on GCP using Terraform following IaC best practices',

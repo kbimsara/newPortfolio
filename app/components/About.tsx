@@ -25,7 +25,7 @@ export default function About() {
                 cloud infrastructure.
               </p>
               <p>
-                Currently working as an <span className="text-blue-400 font-medium">Intern DevOps Engineer</span> at
+                Currently working as an <span className="text-blue-400 font-medium">Associate DevOps Engineer</span> at
                 Behaviol Pty Ltd, where I containerize applications, provision GCP infrastructure with
                 Terraform, and automate CI/CD pipelines.
               </p>
