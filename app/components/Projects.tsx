@@ -24,8 +24,8 @@ const projects: Project[] = [
     type: 'Full-Stack',
     typeColor: 'blue',
     description:
-      'A full-stack Next.js web application that scrapes and aggregates job listings. Built with a modern UI and deployed on Vercel.',
-    tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+      'A full-stack Next.js web application that aggregates job listings from LinkedIn and other top job boards. Features an automated backend service deployed on Oracle Cloud that continuously scrapes and refreshes data every 15 minutes, with a modern frontend hosted on Vercel.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel', 'Oracle Cloud', 'Web Scraping', 'MongoDB'],
     featured: true,
     icon: '💼',
     github: `${GH}/JobScrapper`,
