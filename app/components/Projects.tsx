@@ -5,6 +5,20 @@ const GH = 'https://github.com/kbimsara';
 const projects = [
   // ── FEATURED ──────────────────────────────────────────────
   {
+    title: 'JobScrapper',
+    year: '2026',
+    type: 'Full-Stack',
+    typeColor: 'blue',
+    description:
+      'A full-stack Next.js web application that scrapes and aggregates job listings. Built with a modern UI and deployed on Vercel.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'Vercel'],
+    featured: true,
+    icon: '💼',
+    github: `${GH}/JobScrapper`,
+    link: 'https://job-scrapper-tau-nine.vercel.app/',
+    stars: null,
+  },
+  {
     title: 'Z-Score University Finder',
     year: '2025',
     type: 'ML / AI Project',
@@ -153,6 +167,12 @@ const GitHubIcon = () => (
   </svg>
 );
 
+const LinkIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+  </svg>
+);
+
 const StarIcon = () => (
   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -205,16 +225,30 @@ export default function Projects() {
                     <span key={t} className="tech-badge">{t}</span>
                   ))}
                 </div>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-slate-500 hover:text-white transition-colors text-xs flex-shrink-0"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <GitHubIcon />
-                  <span>View</span>
-                </a>
+                <div className="flex items-center gap-3">
+                  {(p as any).link && (
+                    <a
+                      href={(p as any).link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-slate-500 hover:text-white transition-colors text-xs flex-shrink-0"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <LinkIcon />
+                      <span>Live</span>
+                    </a>
+                  )}
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-slate-500 hover:text-white transition-colors text-xs flex-shrink-0"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <GitHubIcon />
+                    <span>View</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}
@@ -255,14 +289,26 @@ export default function Projects() {
                     <span key={t} className="tech-badge text-[11px] px-2 py-0.5">{t}</span>
                   ))}
                 </div>
-                <a
-                  href={p.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-slate-600 hover:text-white transition-colors text-xs flex-shrink-0 mt-1"
-                >
-                  <GitHubIcon />
-                </a>
+                <div className="flex items-center gap-2 mt-1">
+                  {(p as any).link && (
+                    <a
+                      href={(p as any).link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 text-slate-600 hover:text-white transition-colors text-xs flex-shrink-0"
+                    >
+                      <LinkIcon />
+                    </a>
+                  )}
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-slate-600 hover:text-white transition-colors text-xs flex-shrink-0 mt-1"
+                  >
+                    <GitHubIcon />
+                  </a>
+                </div>
               </div>
             </div>
           ))}
