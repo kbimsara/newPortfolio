@@ -2,7 +2,21 @@
 
 const GH = 'https://github.com/kbimsara';
 
-const projects = [
+type Project = {
+  title: string;
+  year: string;
+  type: string;
+  typeColor: string;
+  description: string;
+  tech: string[];
+  featured: boolean;
+  icon: string;
+  github: string;
+  link?: string;
+  stars: number | null;
+};
+
+const projects: Project[] = [
   // ── FEATURED ──────────────────────────────────────────────
   {
     title: 'JobScrapper',
@@ -226,9 +240,9 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex items-center gap-3">
-                  {(p as any).link && (
+                  {p.link && (
                     <a
-                      href={(p as any).link}
+                      href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1.5 text-slate-500 hover:text-white transition-colors text-xs flex-shrink-0"
@@ -290,9 +304,9 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="flex items-center gap-2 mt-1">
-                  {(p as any).link && (
+                  {p.link && (
                     <a
-                      href={(p as any).link}
+                      href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 text-slate-600 hover:text-white transition-colors text-xs flex-shrink-0"
