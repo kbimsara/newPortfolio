@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Navbar from './components/Navbar';
 import TopologyInspector from './components/TopologyInspector';
 import Workflow from './components/Workflow';
@@ -59,7 +60,7 @@ export default function Home() {
               </h1>
 
               <p className="text-[17px] md:text-[1.125rem] leading-[1.875rem] tracking-[-0.005em] text-on-surface-variant max-w-2xl">
-                Software Engineering undergraduate at SLTC Research University and Associate DevOps Engineer at Behaviol Pty Ltd — building full-stack web applications, provisioning GCP &amp; AWS infrastructure with Terraform, and automating CI/CD pipelines.
+                Software Engineering undergraduate at SLTC Research University and Associate DevOps Engineer at Behaviol Pty Ltd - building full-stack web applications, provisioning GCP &amp; AWS infrastructure with Terraform, and automating CI/CD pipelines.
               </p>
 
               {/* Identity & Technical Spec Card */}
@@ -68,15 +69,17 @@ export default function Home() {
                   ⌜ 06°N ⌟
                 </span>
 
-                {/* Monogram / Role Anchor */}
-                <div className="sm:col-span-4 flex flex-col items-center">
-                  <div className="w-full aspect-square max-w-[160px] rounded border border-surface-container-highest bg-surface flex flex-col items-center justify-center p-4 text-center">
-                    <span className="text-4xl font-mono font-semibold tracking-tight text-primary">
-                      KB<span className="text-secondary">.</span>
-                    </span>
-                    <span className="mt-2 px-2 py-0.5 bg-surface-container-low border border-surface-container-highest rounded text-[10px] font-mono text-secondary">
-                      <TypingText />
-                    </span>
+                {/* Portrait Anchor */}
+                <div className="sm:col-span-4 relative">
+                  <div className="w-full aspect-square overflow-hidden rounded border border-surface-container-highest bg-surface-container relative">
+                    <Image
+                      src="/b&w.png"
+                      alt="Kavindu Bimsara, DevOps Engineer & Software Engineer"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 220px"
+                      priority
+                      className="object-cover object-top"
+                    />
                   </div>
                   <span className="block mt-1.5 text-[10px] font-mono text-outline uppercase tracking-wider text-center">
                     Identity: Bimsara, K.
@@ -85,6 +88,12 @@ export default function Home() {
 
                 {/* Spec Rows */}
                 <div className="sm:col-span-8 flex flex-col justify-center space-y-3 font-mono text-xs">
+                  <div className="flex items-center justify-between border-b border-surface-container pb-1.5 gap-2">
+                    <span className="text-outline text-[11px]">DISCIPLINE</span>
+                    <span className="text-right">
+                      <TypingText />
+                    </span>
+                  </div>
                   <div className="flex items-center justify-between border-b border-surface-container pb-1.5 gap-2">
                     <span className="text-outline text-[11px]">LOCATION</span>
                     <span className="text-primary font-medium text-right">
@@ -128,7 +137,7 @@ export default function Home() {
                 </a>
                 <a
                   className="px-6 py-3 border border-surface-container-highest hover:border-outline text-primary hover:bg-surface-container-low transition-colors duration-150 font-mono text-xs font-medium rounded flex items-center gap-2"
-                  href="/Kavindu_Bimsara_CV.pdf"
+                  href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -220,7 +229,7 @@ export default function Home() {
             </a>
             <a
               className="text-on-surface-variant hover:text-secondary transition-colors duration-150"
-              href="/Kavindu_Bimsara_CV.pdf"
+              href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >

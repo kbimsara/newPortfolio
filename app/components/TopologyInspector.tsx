@@ -44,7 +44,7 @@ const NODES: TopologyNode[] = [
       { label: 'MESSAGING', value: 'RabbitMQ / JWT' },
     ],
     summary:
-      'Backend services in Node.js, Express.js, FastAPI, Laravel, Django, C# .NET, and PHP — spanning REST APIs, ML inference, and RabbitMQ microservices.',
+      'Backend services in Node.js, Express.js, FastAPI, Laravel, Django, C# .NET, and PHP - spanning REST APIs, ML inference, and RabbitMQ microservices.',
   },
   {
     key: 'containers',

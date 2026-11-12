@@ -95,7 +95,7 @@ export default function Navbar() {
 
           <a
             className="px-3 py-1 text-[11px] font-mono tracking-[0.06em] bg-primary-container text-surface hover:bg-secondary transition-colors duration-150 hidden sm:flex items-center gap-1.5 rounded"
-            href="/Kavindu_Bimsara_CV.pdf"
+            href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -149,7 +149,7 @@ export default function Navbar() {
               GitHub
             </a>
             <a
-              href="/Kavindu_Bimsara_CV.pdf"
+              href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 text-center py-2 bg-primary-container text-surface rounded text-[11px] font-mono"

@@ -23,7 +23,7 @@ const axioms = [
     num: '04',
     title: 'Full-Stack Ownership',
     description:
-      'Bridging software engineering and DevOps — connecting clean Next.js, Node.js, and FastAPI codebases directly with reliable cloud runtimes.',
+      'Bridging software engineering and DevOps - connecting clean Next.js, Node.js, and FastAPI codebases directly with reliable cloud runtimes.',
   },
 ];
 
@@ -45,7 +45,7 @@ export default function About() {
       </div>
 
       <p className="text-[15px] leading-[1.625rem] text-on-surface-variant max-w-3xl mb-8">
-        I&apos;m a Software Engineering undergraduate at <strong className="text-primary font-medium">SLTC Research University</strong> and currently work as an <strong className="text-secondary font-medium">Associate DevOps Engineer</strong> at Behaviol Pty Ltd, where I containerize applications, provision GCP infrastructure with Terraform, and automate CI/CD pipelines. Based in Kalutara, Sri Lanka — open to remote opportunities worldwide.
+        I&apos;m a Software Engineering undergraduate at <strong className="text-primary font-medium">SLTC Research University</strong> and currently work as an <strong className="text-secondary font-medium">Associate DevOps Engineer</strong> at Behaviol Pty Ltd, where I containerize applications, provision GCP infrastructure with Terraform, and automate CI/CD pipelines. Based in Kalutara, Sri Lanka - open to remote opportunities worldwide.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

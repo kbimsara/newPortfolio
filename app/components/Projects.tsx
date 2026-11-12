@@ -23,7 +23,7 @@ type Project = {
 const projects: Project[] = [
   // ── FEATURED DOSSIERS ─────────────────────────────────────
   {
-    title: 'JobScrapper — Automated Job Board Aggregator',
+    title: 'JobScrapper - Automated Job Board Aggregator',
     year: '2026',
     type: 'FULL-STACK',
     description:
@@ -50,7 +50,7 @@ backend_worker:
 datastore: MongoDB`,
   },
   {
-    title: 'Z-Score University Finder — ML Course Recommender',
+    title: 'Z-Score University Finder - ML Course Recommender',
     year: '2025',
     type: 'ML / AI PROJECT',
     description:
@@ -75,7 +75,7 @@ inference_api:
   inputs: [z_score, academic_stream, district]`,
   },
   {
-    title: 'Todo App Cloud Infrastructure — Terraform & GCP CI/CD',
+    title: 'Todo App Cloud Infrastructure - Terraform & GCP CI/CD',
     year: '2026',
     type: 'DEVOPS PROJECT',
     description:
@@ -130,7 +130,7 @@ validation:
     year: '2024',
     type: 'DEVOPS PROJECT',
     description:
-      'AWS-based Terraform IaC for a scalable library management system — VPC, EC2 auto-scaling, RDS MySQL, ALB, S3, Lambda, CloudWatch, GitHub Actions CI/CD.',
+      'AWS-based Terraform IaC for a scalable library management system - VPC, EC2 auto-scaling, RDS MySQL, ALB, S3, Lambda, CloudWatch, GitHub Actions CI/CD.',
     tech: ['Terraform', 'AWS', 'EC2', 'RDS', 'Lambda', 'S3', 'GitHub Actions'],
     featured: false,
     github: `${GH}/lms-infrastructure`,

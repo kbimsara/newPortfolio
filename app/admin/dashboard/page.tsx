@@ -109,7 +109,7 @@ export default function AdminDashboard() {
             </div>
             <div>
               <h1 className="font-semibold text-white text-sm">Admin Dashboard</h1>
-              <p className="text-slate-500 text-xs">Kavindu Bimsara — Portfolio</p>
+              <p className="text-slate-500 text-xs">Kavindu Bimsara - Portfolio</p>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ export default function AdminDashboard() {
               </div>
               <span className="text-slate-400 text-sm">Total Visitors</span>
             </div>
-            <p className="text-3xl font-bold text-white">{visitorCount?.toLocaleString() ?? '—'}</p>
+            <p className="text-3xl font-bold text-white">{visitorCount?.toLocaleString() ?? '-'}</p>
           </div>
 
           {/* Total messages */}

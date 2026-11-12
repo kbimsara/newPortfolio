@@ -113,11 +113,11 @@ export default function Contact() {
               <span className="text-outline text-[11px]">RESUME</span>
               <a
                 className="text-secondary hover:text-primary font-medium underline underline-offset-4"
-                href="/Kavindu_Bimsara_CV.pdf"
+                href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Kavindu_Bimsara_CV.pdf
+                Kavindu Bimsara CV - DevOps.pdf
               </a>
             </div>
           </div>

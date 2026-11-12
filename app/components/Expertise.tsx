@@ -81,7 +81,7 @@ export default function Expertise() {
               Scalable Web, Mobile &amp; API Systems
             </h3>
             <p className="text-[15px] leading-[1.625rem] text-on-surface-variant mb-6">
-              Building full-stack web and mobile applications in TypeScript, JavaScript, Python, and PHP — pairing Next.js and React interfaces with Node.js, FastAPI, Laravel, Django, and SQL/NoSQL persistence.
+              Building full-stack web and mobile applications in TypeScript, JavaScript, Python, and PHP - pairing Next.js and React interfaces with Node.js, FastAPI, Laravel, Django, and SQL/NoSQL persistence.
             </p>
 
             {/* Technical Invariant Chips */}

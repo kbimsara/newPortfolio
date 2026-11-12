@@ -5,14 +5,14 @@ import { useState, useRef, useEffect, KeyboardEvent } from 'react';
 const COMMANDS: Record<string, () => string[]> = {
   help: () => [
     '<span class="text-[#cae6ff] font-semibold">Available commands:</span>',
-    '  <span class="text-[#aecae2]">whoami</span>       — About me',
-    '  <span class="text-[#aecae2]">skills</span>       — Tech stack',
-    '  <span class="text-[#aecae2]">experience</span>   — Work history',
-    '  <span class="text-[#aecae2]">projects</span>     — Featured &amp; recent builds',
-    '  <span class="text-[#aecae2]">education</span>    — Academic background',
-    '  <span class="text-[#aecae2]">contact</span>      — Get in touch',
-    '  <span class="text-[#aecae2]">ls</span>           — List sections',
-    '  <span class="text-[#aecae2]">clear</span>        — Clear terminal',
+    '  <span class="text-[#aecae2]">whoami</span>       - About me',
+    '  <span class="text-[#aecae2]">skills</span>       - Tech stack',
+    '  <span class="text-[#aecae2]">experience</span>   - Work history',
+    '  <span class="text-[#aecae2]">projects</span>     - Featured &amp; recent builds',
+    '  <span class="text-[#aecae2]">education</span>    - Academic background',
+    '  <span class="text-[#aecae2]">contact</span>      - Get in touch',
+    '  <span class="text-[#aecae2]">ls</span>           - List sections',
+    '  <span class="text-[#aecae2]">clear</span>        - Clear terminal',
   ],
   whoami: () => [
     '<span class="text-[#cae6ff] font-semibold">Kavindu Bimsara</span>',
@@ -45,13 +45,13 @@ const COMMANDS: Record<string, () => string[]> = {
     '  · PHP, MySQL, JavaScript, Ajax, Bootstrap',
   ],
   projects: () => [
-    '<span class="text-[#aecae2]">[2026]</span> JobScrapper — Next.js · Vercel · Oracle Cloud · MongoDB',
-    '<span class="text-[#aecae2]">[2026]</span> Todo App Cloud Infrastructure — Terraform · GCP · Docker · GitHub Actions',
-    '<span class="text-[#aecae2]">[2025]</span> Z-Score University Finder — Next.js · FastAPI · Python · LightGBM',
-    '<span class="text-[#aecae2]">[2025]</span> TripGo – AI Trip Planner — Next.js · TypeScript · Claude AI · MongoDB',
-    '<span class="text-[#aecae2]">[2025]</span> MovieHub — TypeScript · C# .NET · Docker Compose',
-    '<span class="text-[#aecae2]">[2025]</span> QReturn – Lost &amp; Found Web App — React · Node.js · MongoDB',
-    '<span class="text-[#aecae2]">[2024]</span> LMS Cloud Infrastructure (AWS) — Terraform · AWS · GitHub Actions',
+    '<span class="text-[#aecae2]">[2026]</span> JobScrapper - Next.js · Vercel · Oracle Cloud · MongoDB',
+    '<span class="text-[#aecae2]">[2026]</span> Todo App Cloud Infrastructure - Terraform · GCP · Docker · GitHub Actions',
+    '<span class="text-[#aecae2]">[2025]</span> Z-Score University Finder - Next.js · FastAPI · Python · LightGBM',
+    '<span class="text-[#aecae2]">[2025]</span> TripGo – AI Trip Planner - Next.js · TypeScript · Claude AI · MongoDB',
+    '<span class="text-[#aecae2]">[2025]</span> MovieHub - TypeScript · C# .NET · Docker Compose',
+    '<span class="text-[#aecae2]">[2025]</span> QReturn – Lost &amp; Found Web App - React · Node.js · MongoDB',
+    '<span class="text-[#aecae2]">[2024]</span> LMS Cloud Infrastructure (AWS) - Terraform · AWS · GitHub Actions',
   ],
   education: () => [
     '<span class="text-[#cae6ff]">►</span> B.Sc. Hons in Software Engineering  <span class="text-[#878b87]">2022 – Present</span>',
@@ -86,7 +86,7 @@ interface Line {
 }
 
 const WELCOME: Line[] = [
-  { type: 'output', content: '<span class="text-[#cae6ff] font-semibold">kbimsara@portfolio</span> — Interactive System Shell' },
+  { type: 'output', content: '<span class="text-[#cae6ff] font-semibold">kbimsara@portfolio</span> - Interactive System Shell' },
   { type: 'output', content: 'Type <span class="text-[#aecae2]">help</span> or click a quick command below to inspect portfolio data.' },
   { type: 'output', content: '' },
 ];
