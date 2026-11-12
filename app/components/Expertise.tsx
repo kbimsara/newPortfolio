@@ -5,7 +5,7 @@ export default function Expertise() {
     <section className="border-b border-surface-container-highest pb-12" id="expertise">
       <div className="mb-8">
         <div className="text-[11px] font-mono tracking-[0.06em] text-secondary mb-1 uppercase">
-          03 // ARCHITECTURAL DUALITY
+          03 // CORE DISCIPLINES
         </div>
         <h2 className="text-2xl md:text-[2rem] font-medium text-primary tracking-[-0.02em] leading-tight">
           Cloud Infrastructure &amp; Full-Stack Engineering

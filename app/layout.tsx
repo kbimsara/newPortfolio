@@ -14,7 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KAVINDU BIMSARA // Software Engineer & Associate DevOps Engineer",
+  title: "KAVINDU BIMSARA // DevOps Engineer & Software Engineer",
   description:
     "Software Engineering undergraduate and Associate DevOps Engineer specializing in full-stack development, GCP & AWS cloud infrastructure, Kubernetes, Terraform, and CI/CD automation.",
 };

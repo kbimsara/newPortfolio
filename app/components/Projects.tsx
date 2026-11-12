@@ -39,7 +39,7 @@ const projects: Project[] = [
       { label: 'FRONTEND HOST', value: 'Vercel (Next.js)' },
       { label: 'SCRAPER RUNTIME', value: 'Oracle Cloud + MongoDB' },
     ],
-    specTitle: '// ARCHITECTURE SUMMARY: JOBSCRAPPER SPLIT RUNTIME',
+    specTitle: '// STACK OVERVIEW: JOBSCRAPPER SPLIT RUNTIME',
     specBody: `frontend:
   framework: Next.js + React + Tailwind CSS
   host: Vercel
@@ -65,7 +65,7 @@ datastore: MongoDB`,
       { label: 'API SERVICE', value: 'Python FastAPI' },
       { label: 'GITHUB STARS', value: '3 Stars' },
     ],
-    specTitle: '// ARCHITECTURE SUMMARY: ML RANKING PIPELINE',
+    specTitle: '// STACK OVERVIEW: ML RANKING PIPELINE',
     specBody: `client:
   framework: Next.js + Tailwind CSS
   features: Real-time searchable stream & district filters
@@ -225,7 +225,7 @@ export default function Projects() {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <div className="text-[11px] font-mono tracking-[0.06em] text-secondary mb-1 uppercase">
-            05 // ARCHIVAL MONOGRAPHS
+            05 // ENGINEERING PROJECTS
           </div>
           <h2 className="text-2xl md:text-[2rem] font-medium text-primary tracking-[-0.02em] leading-tight">
             Featured Project Dossiers
@@ -301,7 +301,7 @@ export default function Projects() {
                       onClick={() => toggleSpec(p.title)}
                       className="w-full py-2 bg-surface hover:bg-surface-bright border border-surface-container-highest text-primary text-xs rounded text-center transition-colors cursor-pointer"
                     >
-                      {isOpen ? '[-] Hide Architecture Spec' : '[+] View Architecture Spec'}
+                      {isOpen ? '[-] Hide Stack Spec' : '[+] View Stack Spec'}
                     </button>
 
                     <div className="flex items-center justify-between gap-2 pt-1 text-[11px]">

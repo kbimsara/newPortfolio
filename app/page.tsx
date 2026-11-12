@@ -24,7 +24,7 @@ export default function Home() {
       <div className="fixed bottom-2 right-4 z-50 pointer-events-none hidden 2xl:flex items-center gap-2 text-outline text-[10px] font-mono">
         <span>KAVINDU_BIMSARA</span>
         <span>{'//'}</span>
-        <span>LK-WEST (2025)</span>
+        <span>LK-WEST (2026)</span>
       </div>
 
       <Navbar />
@@ -34,7 +34,7 @@ export default function Home() {
         {/* ================================================================= */}
         {/* HERO SECTION: Editorial Presentation & Interactive Stack Topology */}
         {/* ================================================================= */}
-        <section className="relative pt-2 pb-10 border-b border-surface-container-highest" id="architecture">
+        <section className="relative pt-2 pb-10 border-b border-surface-container-highest" id="overview">
           {/* Top Meta Eyebrow */}
           <div className="flex flex-wrap items-center justify-between border-b border-surface-container-highest pb-3 mb-8 text-on-surface-variant font-mono text-[11px] tracking-[0.06em] gap-2">
             <div className="flex items-center gap-3 flex-wrap">
@@ -43,7 +43,7 @@ export default function Home() {
               <span>SOFTWARE ENGINEER &amp; ASSOCIATE DEVOPS ENGINEER</span>
             </div>
             <div className="flex items-center gap-3 flex-wrap">
-              <VisitorCounter />
+              <span>OPEN TO REMOTE</span>
               <span className="hidden sm:inline">{'//'}</span>
               <span className="hidden sm:inline">KALUTARA, SRI LANKA</span>
             </div>
@@ -111,6 +111,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
+              {/* Creative DevOps Metric / Split-Flap View Counter */}
+              <VisitorCounter />
 
               {/* Direct Hero Actions */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
@@ -182,7 +185,7 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-16 py-12 flex flex-col gap-6">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-surface-container pb-4">
             <div className="font-mono text-[11px] text-on-surface-variant tracking-widest uppercase">
-              SYS.ARCH // KAVINDU BIMSARA
+              DEVOPS // KAVINDU BIMSARA
             </div>
             <div className="flex items-center gap-2 font-mono text-[11px] text-secondary">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-600" />
@@ -193,9 +196,9 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 font-mono text-xs">
             <a
               className="text-primary hover:text-secondary transition-colors duration-150"
-              href="#architecture"
+              href="#overview"
             >
-              Architecture
+              Overview
             </a>
             <a
               className="text-on-surface-variant hover:text-secondary transition-colors duration-150"
@@ -227,7 +230,7 @@ export default function Home() {
 
           <div className="pt-4 border-t border-surface-container flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 font-mono text-xs text-on-surface-variant">
             <div>
-              © 2025 // KAVINDU BIMSARA. DESIGNED &amp; BUILT WITH NEXT.JS, TAILWIND CSS &amp; MONGODB.
+              © 2026 // KAVINDU BIMSARA. DESIGNED &amp; BUILT WITH NEXT.JS, TAILWIND CSS &amp; MONGODB.
             </div>
             <div className="text-[11px] text-outline">
               GITHUB: kbimsara

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const links = [
-  { label: 'Architecture', href: '#architecture' },
+  { label: 'Overview', href: '#overview' },
   { label: 'Pipelines', href: '#pipelines' },
   { label: 'Stack', href: '#stack' },
   { label: 'Projects', href: '#monographs' },
@@ -13,7 +13,7 @@ const links = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState('#architecture');
+  const [active, setActive] = useState('#overview');
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function Navbar() {
           href="#"
         >
           <span className="inline-block w-2.5 h-2.5 bg-primary flex-shrink-0" />
-          <span>SYS.ARCH // K.BIMSARA</span>
+          <span>DEVOPS // K.BIMSARA</span>
         </a>
 
         {/* Desktop Navigation Links */}
