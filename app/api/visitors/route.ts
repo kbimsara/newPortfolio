@@ -1,10 +1,14 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import { getMongoClient } from '@/lib/mongodb';
 
 // GET — return current count (no increment, used for polling)
 export async function GET() {
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({ count: null });
+  }
+
   try {
-    const client = await clientPromise;
+    const client = await getMongoClient();
     const db = client.db('portfolio');
     const col = db.collection('visitors');
 
@@ -18,8 +22,12 @@ export async function GET() {
 
 // POST — increment counter, return new count
 export async function POST() {
+  if (!process.env.MONGODB_URI) {
+    return NextResponse.json({ count: null });
+  }
+
   try {
-    const client = await clientPromise;
+    const client = await getMongoClient();
     const db = client.db('portfolio');
     const col = db.collection('visitors');
 

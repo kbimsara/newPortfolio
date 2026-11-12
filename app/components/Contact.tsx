@@ -2,51 +2,32 @@
 
 import { useState } from 'react';
 
-const contactInfo = [
-  {
-    label: 'Email',
-    value: 'kavidubim2gamaethige@gmail.com',
-    href: 'mailto:kavidubim2gamaethige@gmail.com',
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'GitHub',
-    value: 'github.com/kbimsara',
-    href: 'https://github.com/kbimsara',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'LinkedIn',
-    value: 'linkedin.com/in/kavidu-bimsara',
-    href: 'https://linkedin.com/in/kavidu-bimsara',
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-      </svg>
-    ),
-  },
-];
-
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>('idle');
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('kavidubim2gamaethige@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // ignore clipboard errors
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
     const form = e.currentTarget;
-    const name    = (form.elements.namedItem('name')    as HTMLInputElement).value;
-    const email   = (form.elements.namedItem('email')   as HTMLInputElement).value;
-    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+    const scope = (form.elements.namedItem('scope') as HTMLSelectElement).value.trim();
+    const rawMessage = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
+
+    const message = scope ? `[Scope: ${scope}]\n\n${rawMessage}` : rawMessage;
 
     try {
       const res = await fetch('/api/messages', {
@@ -63,92 +44,202 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16">
-          {/* Left */}
+    <section className="pb-12" id="contact">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left: Verified Identity & Direct Coordinates (5 cols) */}
+        <div className="lg:col-span-5 flex flex-col gap-6">
           <div>
-            <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">Get In Touch</p>
-            <h2 className="text-4xl font-bold text-white mb-6 section-heading">Contact</h2>
+            <div className="text-[11px] font-mono tracking-[0.06em] text-secondary mb-1 uppercase">
+              09 // COMMUNICATIONS DISPATCH
+            </div>
+            <h2 className="text-2xl md:text-[2rem] font-medium text-primary tracking-[-0.02em] leading-tight">
+              Initiate Engineering Dialogue
+            </h2>
+          </div>
 
-            <p className="text-slate-400 leading-relaxed mt-10 mb-10">
-              I&apos;m currently open to new opportunities — whether it&apos;s a full-time role, internship, or an interesting project to collaborate on.
-              My inbox is always open. Feel free to reach out!
-            </p>
+          <p className="text-[15px] leading-[1.625rem] text-on-surface-variant">
+            Available for full-time Software Engineering &amp; DevOps roles, internships, cloud infrastructure collaborations, and full-stack product builds.
+          </p>
 
-            <div className="space-y-4">
-              {contactInfo.map(({ label, value, href, icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('http') ? '_blank' : undefined}
-                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 glass rounded-xl p-4 hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-200 group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
-                    {icon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs text-slate-500 mb-0.5">{label}</div>
-                    <div className="text-slate-300 text-sm font-medium group-hover:text-white transition-colors truncate">{value}</div>
-                  </div>
-                  <svg className="w-4 h-4 text-slate-600 ml-auto group-hover:text-blue-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              ))}
+          {/* Direct Contact Card */}
+          <div className="p-4 bg-surface-container-low border border-surface-container-highest rounded font-mono space-y-3">
+            <div className="text-[11px] text-secondary font-semibold flex items-center justify-between">
+              <span>DIRECT EMAIL COORDINATE</span>
+              <span className="text-emerald-700">ACTIVE</span>
+            </div>
+            <div className="bg-surface p-2.5 border border-surface-container text-xs text-primary break-all select-all">
+              kavidubim2gamaethige@gmail.com
+            </div>
+            <div className="text-[11px] text-outline flex items-center justify-between">
+              <span>RESPONSE WINDOW: INBOX MONITORED</span>
+              <button
+                type="button"
+                onClick={copyEmail}
+                className="text-primary hover:text-secondary underline cursor-pointer"
+              >
+                {copied ? 'Copied!' : 'Copy Email'}
+              </button>
             </div>
           </div>
 
-          {/* Right — message form */}
-          <div>
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-white text-lg font-semibold mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs text-slate-400 mb-1.5 font-medium">Name</label>
-                  <input
-                    name="name" type="text" required placeholder="Your name"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/60 focus:bg-blue-500/5 transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-slate-400 mb-1.5 font-medium">Email</label>
-                  <input
-                    name="email" type="email" required placeholder="your@email.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/60 focus:bg-blue-500/5 transition-all"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-slate-400 mb-1.5 font-medium">Message</label>
-                  <textarea
-                    name="message" rows={5} required placeholder="What's on your mind?"
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-blue-500/60 focus:bg-blue-500/5 transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === 'sending'}
-                  className="w-full py-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25 active:scale-95 text-sm"
-                >
-                  {status === 'sending' ? 'Sending…' : 'Send Message'}
-                </button>
-
-                {status === 'success' && (
-                  <p className="text-green-400 text-sm text-center flex items-center justify-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Message sent! I&apos;ll get back to you soon.
-                  </p>
-                )}
-                {status === 'error' && (
-                  <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
-                )}
-              </form>
+          <div className="space-y-2 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-surface-container-highest pb-2">
+              <span className="text-outline text-[11px]">LOCATION</span>
+              <span className="text-primary font-medium">Kalutara, Sri Lanka (Remote Ready)</span>
+            </div>
+            <div className="flex items-center justify-between border-b border-surface-container-highest pb-2">
+              <span className="text-outline text-[11px]">GITHUB</span>
+              <a
+                className="text-primary hover:text-secondary font-medium"
+                href="https://github.com/kbimsara"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/kbimsara
+              </a>
+            </div>
+            <div className="flex items-center justify-between border-b border-surface-container-highest pb-2">
+              <span className="text-outline text-[11px]">LINKEDIN</span>
+              <a
+                className="text-primary hover:text-secondary font-medium"
+                href="https://linkedin.com/in/kavidu-bimsara"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin.com/in/kavidu-bimsara
+              </a>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-outline text-[11px]">RESUME</span>
+              <a
+                className="text-secondary hover:text-primary font-medium underline underline-offset-4"
+                href="/Kavindu_Bimsara_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Kavindu_Bimsara_CV.pdf
+              </a>
             </div>
           </div>
+        </div>
+
+        {/* Right: Interactive Dispatch Form (7 cols) */}
+        <div className="lg:col-span-7 bg-surface-container-low border border-surface-container-highest p-6 sm:p-8 rounded-lg">
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            <div className="flex items-center justify-between border-b border-surface-container pb-3 mb-2">
+              <span className="font-mono text-[11px] text-primary uppercase font-semibold">
+                DIRECT MESSAGE DISPATCH FORM
+              </span>
+              <span className="font-mono text-[11px] text-outline">API // MONGODB</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="contact-name"
+                  className="block font-mono text-[11px] text-on-surface-variant mb-1.5 uppercase"
+                >
+                  Your Name
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  required
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full bg-surface border border-surface-container-highest focus:border-secondary focus:ring-0 text-primary font-mono text-xs px-3.5 py-2.5 rounded transition-colors placeholder:text-outline outline-none"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="contact-email"
+                  className="block font-mono text-[11px] text-on-surface-variant mb-1.5 uppercase"
+                >
+                  Contact Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  required
+                  type="email"
+                  placeholder="you@company.com"
+                  className="w-full bg-surface border border-surface-container-highest focus:border-secondary focus:ring-0 text-primary font-mono text-xs px-3.5 py-2.5 rounded transition-colors placeholder:text-outline outline-none"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="contact-scope"
+                className="block font-mono text-[11px] text-on-surface-variant mb-1.5 uppercase"
+              >
+                Inquiry Scope
+              </label>
+              <select
+                id="contact-scope"
+                name="scope"
+                className="w-full bg-surface border border-surface-container-highest focus:border-secondary focus:ring-0 text-primary font-mono text-xs px-3.5 py-2.5 rounded transition-colors outline-none"
+              >
+                <option value="Full-Time Role / Engineering Opportunity">
+                  Full-Time Role / Engineering Opportunity
+                </option>
+                <option value="DevOps & Cloud Infrastructure (GCP / AWS / Terraform)">
+                  DevOps &amp; Cloud Infrastructure (GCP / AWS / Terraform)
+                </option>
+                <option value="Full-Stack Application Development (Next.js / Node.js)">
+                  Full-Stack Application Development (Next.js / Node.js)
+                </option>
+                <option value="Freelance / Open-Source Collaboration">
+                  Freelance / Open-Source Collaboration
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                htmlFor="contact-message"
+                className="block font-mono text-[11px] text-on-surface-variant mb-1.5 uppercase"
+              >
+                Message / Project Summary
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                required
+                rows={4}
+                placeholder="What's on your mind? Share role details, project scope, or a quick hello..."
+                className="w-full bg-surface border border-surface-container-highest focus:border-secondary focus:ring-0 text-primary font-mono text-xs px-3.5 py-2.5 rounded transition-colors placeholder:text-outline outline-none resize-none"
+              />
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+              <span className="text-[11px] font-mono text-outline">
+                DISPATCH ENDPOINT: /api/messages
+              </span>
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="px-6 py-3 bg-primary-container text-surface hover:bg-secondary disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-150 font-mono text-xs font-semibold rounded flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+                <span>{status === 'sending' ? 'Transmitting…' : 'Transmit Message'}</span>
+              </button>
+            </div>
+          </form>
+
+          {status === 'success' && (
+            <div className="mt-4 p-3 bg-surface border border-emerald-600 font-mono text-xs text-emerald-800 rounded">
+              ✓ MESSAGE TRANSMITTED: Stored in portfolio inbox. I&apos;ll get back to you soon.
+            </div>
+          )}
+
+          {status === 'error' && (
+            <div className="mt-4 p-3 bg-surface border border-error font-mono text-xs text-error rounded">
+              ✕ TRANSMISSION FAILED: Unable to reach the message service right now. You can reach me directly at kavidubim2gamaethige@gmail.com.
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -5,17 +5,19 @@ const experiences = [
     title: 'Associate DevOps Engineer',
     company: 'Behaviol Pty Ltd',
     period: 'May 2026 – Present',
-    type: 'Current',
-    color: 'blue',
+    type: 'CURRENT',
+    summary:
+      'Continuing ownership of application containerization, GCP cloud infrastructure provisioning with Terraform, and CI/CD automation.',
     bullets: [],
-    tags: [],
+    tags: ['Docker', 'Kubernetes', 'GCP', 'Terraform', 'CI/CD'],
   },
   {
     title: 'Intern DevOps Engineer',
     company: 'Behaviol Pty Ltd',
     period: 'Nov 2025 – May 2026',
-    type: 'Internship',
-    color: 'cyan',
+    type: 'INTERNSHIP',
+    summary:
+      'Containerized workloads, provisioned GCP infrastructure via Terraform, built CI/CD pipelines, and configured system observability dashboards.',
     bullets: [
       'Containerized applications using Docker and managed deployments on Kubernetes (GCP)',
       'Provisioned cloud infrastructure on GCP using Terraform following IaC best practices',
@@ -29,8 +31,9 @@ const experiences = [
     title: 'Software Developer Trainee',
     company: 'Mahapola Ports And Maritime Academy',
     period: 'Jul 2022 – Jan 2023',
-    type: 'Internship',
-    color: 'cyan',
+    type: 'INTERNSHIP',
+    summary:
+      'Designed SQL relational databases and built responsive full-stack web components with PHP, JavaScript, Ajax, and Bootstrap CSS.',
     bullets: [
       'Designed and managed SQL-based relational databases',
       'Developed responsive UI components using Bootstrap CSS and dynamic tables with Ajax',
@@ -43,69 +46,73 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">Career</p>
-        <h2 className="text-4xl font-bold text-white mb-16 section-heading">Experience</h2>
-
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 via-cyan-500 to-transparent" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, i) => (
-              <div key={i} className="relative pl-10">
-                {/* Dot */}
-                <div className={`absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
-                  exp.color === 'blue'
-                    ? 'bg-blue-500 border-blue-300 shadow-[0_0_12px_rgba(59,130,246,0.8)]'
-                    : 'bg-cyan-500 border-cyan-300 shadow-[0_0_12px_rgba(6,182,212,0.8)]'
-                }`} />
-
-                <div className="glass rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300 group">
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-4">
-                    <div>
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                          {exp.title}
-                        </h3>
-                        {exp.type === 'Current' && (
-                          <span className="px-2 py-0.5 bg-green-500/20 border border-green-500/40 text-green-400 text-xs rounded-full">
-                            Current
-                          </span>
-                        )}
-                      </div>
-                      <p className={`font-medium mt-1 ${exp.color === 'blue' ? 'text-blue-400' : 'text-cyan-400'}`}>
-                        {exp.company}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-slate-500 text-sm whitespace-nowrap">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      {exp.period}
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 mb-5">
-                    {exp.bullets.map((b, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-slate-400 text-sm leading-relaxed">
-                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${exp.color === 'blue' ? 'bg-blue-400' : 'bg-cyan-400'}`} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tags.map((tag) => (
-                      <span key={tag} className="tech-badge">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+    <section className="border-b border-surface-container-highest pb-12" id="experience">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div className="text-[11px] font-mono tracking-[0.06em] text-secondary mb-1 uppercase">
+            07 // CAREER TIMELINE
           </div>
+          <h2 className="text-2xl md:text-[2rem] font-medium text-primary tracking-[-0.02em] leading-tight">
+            Professional Experience
+          </h2>
         </div>
+        <div className="font-mono text-[11px] tracking-[0.06em] text-outline uppercase">
+          PRODUCTION DEVOPS &amp; SOFTWARE TRAINEESHIPS
+        </div>
+      </div>
+
+      <div className="space-y-4">
+        {experiences.map((exp, idx) => (
+          <div
+            key={`${exp.title}-${idx}`}
+            className="p-6 bg-surface-container-low border border-surface-container-highest rounded-lg hover:border-outline transition-colors space-y-4"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-surface-container pb-3">
+              <div>
+                <div className="flex items-center gap-2.5 flex-wrap">
+                  <h3 className="text-lg font-medium text-primary">{exp.title}</h3>
+                  {exp.type === 'CURRENT' && (
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-mono bg-surface border border-emerald-600/40 text-emerald-700 rounded">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                      CURRENT
+                    </span>
+                  )}
+                </div>
+                <p className="font-mono text-xs text-secondary mt-1">
+                  {exp.company} • {exp.type}
+                </p>
+              </div>
+              <span className="font-mono text-xs text-outline whitespace-nowrap">
+                {exp.period}
+              </span>
+            </div>
+
+            <p className="text-[15px] leading-[1.625rem] text-on-surface-variant">
+              {exp.summary}
+            </p>
+
+            {exp.bullets.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1">
+                {exp.bullets.map((b, j) => (
+                  <div key={j} className="border-l-2 border-secondary pl-3 text-[13px] text-on-surface">
+                    {b}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {exp.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-0.5 text-[11px] font-mono bg-surface border border-surface-container-highest text-on-surface-variant rounded"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

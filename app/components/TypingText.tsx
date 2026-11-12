@@ -3,21 +3,21 @@
 import { useState, useEffect } from 'react';
 
 const PHRASES = [
-  { text: 'Software Engineer', color: 'text-blue-400' },
-  { text: 'DevOps Engineer',   color: 'text-cyan-400' },
+  'Software Engineer',
+  'Associate DevOps Engineer',
 ];
 
-const TYPE_SPEED   = 80;   // ms per character typed
-const DELETE_SPEED = 45;   // ms per character deleted
-const PAUSE_AFTER  = 1800; // ms to hold full word
-const PAUSE_BEFORE = 400;  // ms before starting to type next word
+const TYPE_SPEED = 75;
+const DELETE_SPEED = 40;
+const PAUSE_AFTER = 2000;
+const PAUSE_BEFORE = 350;
 
 export default function TypingText() {
   const [phraseIdx, setPhraseIdx] = useState(0);
-  const [displayed, setDisplayed] = useState('');
-  const [phase, setPhase] = useState<'typing' | 'pausing' | 'deleting' | 'waiting'>('typing');
+  const [displayed, setDisplayed] = useState('Software Engineer');
+  const [phase, setPhase] = useState<'typing' | 'pausing' | 'deleting' | 'waiting'>('pausing');
 
-  const { text, color } = PHRASES[phraseIdx];
+  const text = PHRASES[phraseIdx];
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
@@ -31,7 +31,7 @@ export default function TypingText() {
         timeout = setTimeout(() => setPhase('pausing'), PAUSE_AFTER);
       }
     } else if (phase === 'pausing') {
-      timeout = setTimeout(() => setPhase('deleting'), 0);
+      timeout = setTimeout(() => setPhase('deleting'), PAUSE_AFTER);
     } else if (phase === 'deleting') {
       if (displayed.length > 0) {
         timeout = setTimeout(() => {
@@ -51,13 +51,10 @@ export default function TypingText() {
   }, [phase, displayed, text]);
 
   return (
-    <span className="inline-flex items-center gap-1">
-      <span className={`font-semibold transition-colors duration-300 ${color}`}>
-        {displayed}
-      </span>
-      {/* blinking cursor */}
+    <span className="inline-flex items-center gap-1 font-mono text-[11px] tracking-[0.06em] text-secondary">
+      <span>{displayed}</span>
       <span
-        className={`inline-block w-[2px] h-[1em] rounded-full align-middle ${color} opacity-90`}
+        className="inline-block w-[1.5px] h-[1em] bg-secondary align-middle"
         style={{ animation: 'blink 1s step-end infinite' }}
       />
     </span>

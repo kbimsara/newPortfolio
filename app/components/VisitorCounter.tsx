@@ -7,8 +7,6 @@ export default function VisitorCounter() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    // Increment on first load, store flag in sessionStorage so refreshes
-    // don't double-count within the same session
     const counted = sessionStorage.getItem('kb_visited');
 
     const fetchCount = async () => {
@@ -30,14 +28,14 @@ export default function VisitorCounter() {
   if (error || count === null) return null;
 
   return (
-    <div className="flex items-center gap-2 text-xs text-slate-500 font-mono">
-      <span className="relative flex h-2 w-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+    <div className="inline-flex items-center gap-2 px-2.5 py-1 text-[11px] font-mono tracking-[0.06em] text-on-surface-variant bg-surface-container-low border border-outline-variant rounded">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-60" />
+        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary" />
       </span>
       <span>
-        <span className="text-slate-400 font-semibold">{count.toLocaleString()}</span>
-        {' '}visitor{count !== 1 ? 's' : ''}
+        <span className="text-primary font-semibold">{count.toLocaleString()}</span>
+        {' '}SESSION{count !== 1 ? 'S' : ''} LOGGED
       </span>
     </div>
   );

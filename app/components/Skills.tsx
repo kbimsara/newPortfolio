@@ -1,131 +1,173 @@
 'use client';
 
-const skillGroups = [
+import { useState } from 'react';
+
+type CategoryKey = 'all' | 'infra' | 'app' | 'languages' | 'data';
+
+interface StackGroup {
+  id: string;
+  index: string;
+  category: Exclude<CategoryKey, 'all'>;
+  groupLabel: string;
+  title: string;
+  description: string;
+  skills: string[];
+}
+
+const STACK_GROUPS: StackGroup[] = [
   {
-    category: 'Languages',
-    icon: '{ }',
-    color: 'blue',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'PHP', 'Java', 'Dart', 'C'],
-  },
-  {
-    category: 'Frontend',
-    icon: '⬡',
-    color: 'purple',
-    skills: ['React.js', 'Next.js', 'React Native', 'Flutter', 'Three.js', 'Tailwind CSS', 'Bootstrap'],
-  },
-  {
-    category: 'Backend',
-    icon: '⚙',
-    color: 'green',
-    skills: ['Node.js', 'Express.js', 'Laravel', 'Django'],
-  },
-  {
-    category: 'Databases',
-    icon: '▦',
-    color: 'yellow',
-    skills: ['MySQL', 'MongoDB', 'PostgreSQL', 'SQLite'],
-  },
-  {
-    category: 'DevOps & Cloud',
-    icon: '☁',
-    color: 'cyan',
+    id: 'devops-cloud',
+    index: '01',
+    category: 'infra',
+    groupLabel: 'INFRASTRUCTURE & CLOUD',
+    title: 'DevOps & Cloud Platforms',
+    description: 'Containerization, Kubernetes orchestration on GCP, and Terraform IaC on GCP & AWS.',
     skills: ['Docker', 'Kubernetes', 'Terraform', 'GCP', 'AWS'],
   },
   {
-    category: 'CI/CD & Monitoring',
-    icon: '↻',
-    color: 'orange',
-    skills: ['GitHub Actions', 'Jenkins', 'Grafana', 'Prometheus'],
+    id: 'cicd',
+    index: '02',
+    category: 'infra',
+    groupLabel: 'DELIVERY AUTOMATION',
+    title: 'CI / CD Pipelines',
+    description: 'Automated testing, container builds, and cloud deployment workflows.',
+    skills: ['GitHub Actions', 'Jenkins'],
   },
   {
-    category: 'Tools',
-    icon: '⚒',
-    color: 'pink',
+    id: 'monitoring',
+    index: '03',
+    category: 'infra',
+    groupLabel: 'OBSERVABILITY',
+    title: 'Monitoring & Metrics',
+    description: 'System health dashboards, metric collection, and uptime visibility.',
+    skills: ['Grafana', 'Prometheus'],
+  },
+  {
+    id: 'languages',
+    index: '04',
+    category: 'languages',
+    groupLabel: 'CORE LANGUAGES',
+    title: 'Programming Languages',
+    description: 'Type-safe web development, backend scripting, systems programming, and mobile apps.',
+    skills: ['JavaScript', 'TypeScript', 'Python', 'PHP', 'Java', 'Dart', 'C'],
+  },
+  {
+    id: 'frontend',
+    index: '05',
+    category: 'app',
+    groupLabel: 'CLIENT INTERFACES',
+    title: 'Frontend & Mobile',
+    description: 'SSR web apps, interactive 3D scenes, cross-platform mobile apps, and utility CSS.',
+    skills: ['React.js', 'Next.js', 'React Native', 'Flutter', 'Three.js', 'Tailwind CSS', 'Bootstrap'],
+  },
+  {
+    id: 'backend',
+    index: '06',
+    category: 'app',
+    groupLabel: 'SERVER & APIS',
+    title: 'Backend Frameworks',
+    description: 'REST APIs, full-stack MVC backends, and Python/Node.js service layers.',
+    skills: ['Node.js', 'Express.js', 'Laravel', 'Django'],
+  },
+  {
+    id: 'databases',
+    index: '07',
+    category: 'data',
+    groupLabel: 'STATE & PERSISTENCE',
+    title: 'Databases',
+    description: 'Relational schema design and document storage for web and cloud apps.',
+    skills: ['MySQL', 'MongoDB', 'PostgreSQL', 'SQLite'],
+  },
+  {
+    id: 'tools',
+    index: '08',
+    category: 'data',
+    groupLabel: 'WORKFLOW & HARDWARE',
+    title: 'Developer Tools',
+    description: 'Version control, API verification, cloud BaaS, and embedded prototyping.',
     skills: ['Git', 'Postman', 'Firebase', 'Arduino'],
   },
 ];
 
-const colorMap: Record<string, { card: string; icon: string; badge: string; dot: string }> = {
-  blue: {
-    card: 'hover:border-blue-500/40 hover:shadow-blue-500/10',
-    icon: 'text-blue-400 bg-blue-400/10',
-    badge: 'bg-blue-400/10 border-blue-400/30 text-blue-300',
-    dot: 'bg-blue-400',
-  },
-  purple: {
-    card: 'hover:border-purple-500/40 hover:shadow-purple-500/10',
-    icon: 'text-purple-400 bg-purple-400/10',
-    badge: 'bg-purple-400/10 border-purple-400/30 text-purple-300',
-    dot: 'bg-purple-400',
-  },
-  green: {
-    card: 'hover:border-green-500/40 hover:shadow-green-500/10',
-    icon: 'text-green-400 bg-green-400/10',
-    badge: 'bg-green-400/10 border-green-400/30 text-green-300',
-    dot: 'bg-green-400',
-  },
-  yellow: {
-    card: 'hover:border-yellow-500/40 hover:shadow-yellow-500/10',
-    icon: 'text-yellow-400 bg-yellow-400/10',
-    badge: 'bg-yellow-400/10 border-yellow-400/30 text-yellow-300',
-    dot: 'bg-yellow-400',
-  },
-  cyan: {
-    card: 'hover:border-cyan-500/40 hover:shadow-cyan-500/10',
-    icon: 'text-cyan-400 bg-cyan-400/10',
-    badge: 'bg-cyan-400/10 border-cyan-400/30 text-cyan-300',
-    dot: 'bg-cyan-400',
-  },
-  orange: {
-    card: 'hover:border-orange-500/40 hover:shadow-orange-500/10',
-    icon: 'text-orange-400 bg-orange-400/10',
-    badge: 'bg-orange-400/10 border-orange-400/30 text-orange-300',
-    dot: 'bg-orange-400',
-  },
-  pink: {
-    card: 'hover:border-pink-500/40 hover:shadow-pink-500/10',
-    icon: 'text-pink-400 bg-pink-400/10',
-    badge: 'bg-pink-400/10 border-pink-400/30 text-pink-300',
-    dot: 'bg-pink-400',
-  },
-};
+const FILTERS: { key: CategoryKey; label: string }[] = [
+  { key: 'all', label: 'ALL (8)' },
+  { key: 'infra', label: 'DEVOPS & CLOUD' },
+  { key: 'app', label: 'WEB & BACKEND' },
+  { key: 'languages', label: 'LANGUAGES' },
+  { key: 'data', label: 'DATA & TOOLS' },
+];
 
 export default function Skills() {
-  return (
-    <section id="skills" className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">Expertise</p>
-        <h2 className="text-4xl font-bold text-white mb-16 section-heading">Skills</h2>
+  const [filter, setFilter] = useState<CategoryKey>('all');
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {skillGroups.map((group) => {
-            const c = colorMap[group.color];
+  const visibleGroups =
+    filter === 'all' ? STACK_GROUPS : STACK_GROUPS.filter((g) => g.category === filter);
+
+  return (
+    <section className="border-b border-surface-container-highest pb-12" id="stack">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <div className="text-[11px] font-mono tracking-[0.06em] text-secondary mb-1 uppercase">
+            04 // PRODUCTION ARSENAL
+          </div>
+          <h2 className="text-2xl md:text-[2rem] font-medium text-primary tracking-[-0.02em] leading-tight">
+            Technical Stack Matrix
+          </h2>
+        </div>
+
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap gap-2 font-mono text-[11px] tracking-[0.06em]">
+          {FILTERS.map((f) => {
+            const isActive = filter === f.key;
             return (
-              <div
-                key={group.category}
-                className={`glass rounded-2xl p-6 transition-all duration-300 hover:shadow-lg ${c.card}`}
+              <button
+                key={f.key}
+                type="button"
+                onClick={() => setFilter(f.key)}
+                className={`px-3 py-1 rounded transition-colors cursor-pointer ${
+                  isActive
+                    ? 'bg-primary text-surface'
+                    : 'bg-surface border border-surface-container-highest hover:bg-surface-container-low text-primary'
+                }`}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className={`text-lg font-mono w-9 h-9 rounded-lg flex items-center justify-center ${c.icon}`}>
-                    {group.icon}
-                  </span>
-                  <h3 className="text-white font-semibold">{group.category}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-full border transition-all duration-200 hover:scale-105 cursor-default ${c.badge}`}
-                    >
-                      <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+                {f.label}
+              </button>
             );
           })}
         </div>
+      </div>
+
+      {/* Matrix Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {visibleGroups.map((group) => (
+          <div
+            key={group.id}
+            className="p-4 bg-surface-container-low border border-surface-container-highest rounded hover:border-outline transition-colors flex flex-col justify-between space-y-4"
+          >
+            <div>
+              <div className="font-mono text-[11px] text-outline mb-1">
+                {group.index} / {group.groupLabel}
+              </div>
+              <div className="font-mono text-primary font-semibold text-sm">
+                {group.title}
+              </div>
+              <p className="text-on-surface-variant text-xs mt-1.5 leading-relaxed">
+                {group.description}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-1.5 pt-2 border-t border-surface-container">
+              {group.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-2 py-0.5 bg-surface border border-surface-container-highest rounded text-[11px] font-mono text-primary"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
