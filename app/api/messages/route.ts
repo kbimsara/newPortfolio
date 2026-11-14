@@ -4,7 +4,7 @@ import { jwtVerify } from 'jose';
 
 const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
 
-// POST — save a new message (public)
+// POST - save a new message (public)
 export async function POST(req: NextRequest) {
   try {
     const { name, email, message } = await req.json();
@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// GET — list messages (admin only)
+// GET - list messages (admin only)
 export async function GET(req: NextRequest) {
   try {
     const token = req.cookies.get('kb_admin')?.value;
@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// PATCH — mark message as read (admin only)
+// PATCH - mark message as read (admin only)
 export async function PATCH(req: NextRequest) {
   try {
     const token = req.cookies.get('kb_admin')?.value;

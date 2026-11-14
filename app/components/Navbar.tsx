@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { label: 'Overview', href: '#overview' },
@@ -81,6 +82,8 @@ export default function Navbar() {
             <span>LK: ONLINE</span>
           </div>
 
+          <ThemeToggle />
+
           <button
             type="button"
             onClick={copyEmail}
@@ -94,7 +97,7 @@ export default function Navbar() {
           </button>
 
           <a
-            className="px-3 py-1 text-[11px] font-mono tracking-[0.06em] bg-primary-container text-surface hover:bg-secondary transition-colors duration-150 hidden sm:flex items-center gap-1.5 rounded"
+            className="px-3 py-1 text-[11px] font-mono tracking-[0.06em] bg-primary text-surface hover:bg-secondary hover:text-white transition-colors duration-150 hidden sm:flex items-center gap-1.5 rounded"
             href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -139,23 +142,26 @@ export default function Navbar() {
               {label}
             </a>
           ))}
-          <div className="pt-3 mt-2 border-t border-surface-container flex items-center gap-2">
-            <a
-              href="https://github.com/kbimsara"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center py-2 border border-surface-container-highest bg-surface rounded text-[11px] font-mono text-primary"
-            >
-              GitHub
-            </a>
-            <a
-              href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center py-2 bg-primary-container text-surface rounded text-[11px] font-mono"
-            >
-              Resume CV
-            </a>
+          <div className="pt-3 mt-2 border-t border-surface-container flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <a
+                href="https://github.com/kbimsara"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 text-center py-2 border border-surface-container-highest bg-surface rounded text-[11px] font-mono text-primary"
+              >
+                GitHub
+              </a>
+              <a
+                href="/Kavindu%20Bimsara%20CV%20-%20DevOps%20%20acc.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 text-center py-2 bg-primary text-surface rounded text-[11px] font-mono"
+              >
+                Resume CV
+              </a>
+            </div>
+            <ThemeToggle className="w-full justify-center py-2" />
           </div>
         </div>
       )}

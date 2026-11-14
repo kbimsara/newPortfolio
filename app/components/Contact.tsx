@@ -219,18 +219,18 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="px-6 py-3 bg-primary-container text-surface hover:bg-secondary disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-150 font-mono text-xs font-semibold rounded flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3 bg-primary text-surface hover:bg-secondary hover:text-white disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-150 font-mono text-xs font-semibold rounded flex items-center justify-center gap-2 cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                 </svg>
-                <span>{status === 'sending' ? 'Transmitting…' : 'Transmit Message'}</span>
+                <span>{status === 'sending' ? 'Transmitting...' : 'Transmit Message'}</span>
               </button>
             </div>
           </form>
 
           {status === 'success' && (
-            <div className="mt-4 p-3 bg-surface border border-emerald-600 font-mono text-xs text-emerald-800 rounded">
+            <div className="mt-4 p-3 bg-surface border border-emerald-600 font-mono text-xs text-emerald-800 dark:text-emerald-400 rounded">
               ✓ MESSAGE TRANSMITTED: Stored in portfolio inbox. I&apos;ll get back to you soon.
             </div>
           )}

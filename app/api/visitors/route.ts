@@ -27,7 +27,7 @@ async function incrementLocalCount(): Promise<number> {
   return next;
 }
 
-// GET — return current count (no increment, used for polling)
+// GET - return current count (no increment, used for polling)
 export async function GET() {
   if (!process.env.MONGODB_URI) {
     const count = await readLocalCount();
@@ -47,7 +47,7 @@ export async function GET() {
   }
 }
 
-// POST — increment counter, return new count
+// POST - increment counter, return new count
 export async function POST() {
   if (!process.env.MONGODB_URI) {
     const count = await incrementLocalCount();

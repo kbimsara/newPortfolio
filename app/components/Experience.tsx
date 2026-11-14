@@ -4,7 +4,7 @@ const experiences = [
   {
     title: 'Associate DevOps Engineer',
     company: 'Behaviol Pty Ltd',
-    period: 'May 2026 – Present',
+    period: 'May 2026 - Present',
     type: 'CURRENT',
     summary:
       'Continuing ownership of application containerization, GCP cloud infrastructure provisioning with Terraform, and CI/CD automation.',
@@ -14,7 +14,7 @@ const experiences = [
   {
     title: 'Intern DevOps Engineer',
     company: 'Behaviol Pty Ltd',
-    period: 'Nov 2025 – May 2026',
+    period: 'Nov 2025 - May 2026',
     type: 'INTERNSHIP',
     summary:
       'Containerized workloads, provisioned GCP infrastructure via Terraform, built CI/CD pipelines, and configured system observability dashboards.',
@@ -30,7 +30,7 @@ const experiences = [
   {
     title: 'Software Developer Trainee',
     company: 'Mahapola Ports And Maritime Academy',
-    period: 'Jul 2022 – Jan 2023',
+    period: 'Jul 2022 - Jan 2023',
     type: 'INTERNSHIP',
     summary:
       'Designed SQL relational databases and built responsive full-stack web components with PHP, JavaScript, Ajax, and Bootstrap CSS.',

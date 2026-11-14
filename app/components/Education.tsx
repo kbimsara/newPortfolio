@@ -4,7 +4,7 @@ const education = [
   {
     degree: 'B.Sc. Hons in Software Engineering',
     institution: 'SLTC Research University, Padukka',
-    period: '2022 – Present',
+    period: '2022 - Present',
     current: true,
     code: 'DEGREE_01',
   },
@@ -18,7 +18,7 @@ const education = [
   {
     degree: 'Software Developer NVQ Level 4',
     institution: 'Vocational Training Authority, Kalutara South',
-    period: '2021 – 2022',
+    period: '2021 - 2022',
     current: false,
     code: 'NVQ_03',
   },
@@ -33,7 +33,7 @@ const education = [
 
 const extras = [
   {
-    title: 'Developer – CodeMania Hackathon v4',
+    title: 'Developer - CodeMania Hackathon v4',
     org: 'SLTC Research University',
     year: '2023',
   },

@@ -131,7 +131,7 @@ export default function VisitorCounter() {
           {formattedChars.map((ch, idx) => (
             <span
               key={idx}
-              className="relative inline-flex items-center justify-center w-6 h-7 bg-surface border border-surface-container-highest rounded text-xs font-semibold text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]"
+              className="relative inline-flex items-center justify-center w-6 h-7 bg-surface border border-surface-container-highest rounded text-xs font-semibold text-primary shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
             >
               <span className="relative z-10">{ch}</span>
               <span

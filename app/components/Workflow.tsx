@@ -19,7 +19,7 @@ const STAGES: PipelineStage[] = [
     logTitle: 'STAGE_01 // VERSION_CONTROL & CONTRACTS',
     scope: 'LOCAL → GITHUB',
     lines: [
-      { prefix: '$ git status', prefixClass: 'text-emerald-700 font-semibold', text: 'Working branch synced with main; typed Next.js / TypeScript & Node.js / FastAPI modules.' },
+      { prefix: '$ git status', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Working branch synced with main; typed Next.js / TypeScript & Node.js / FastAPI modules.' },
       { prefix: '[docker]', prefixClass: 'text-secondary', text: 'Local service parity verified via Docker Compose (app + MongoDB / PostgreSQL).' },
       { prefix: '[trigger]', prefixClass: 'text-primary', text: 'Push to GitHub repository initiates CI workflow.' },
     ],
@@ -33,7 +33,7 @@ const STAGES: PipelineStage[] = [
     lines: [
       { prefix: '[ci-runner]', prefixClass: 'text-secondary', text: 'Running TypeScript check (tsc --noEmit) & ESLint verification.' },
       { prefix: '[jenkins/gha]', prefixClass: 'text-secondary', text: 'Automated build and test steps configured via GitHub Actions and Jenkins.' },
-      { prefix: '✓ status:', prefixClass: 'text-emerald-700 font-semibold', text: 'Static checks and application build passed.' },
+      { prefix: '✓ status:', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Static checks and application build passed.' },
     ],
   },
   {
@@ -43,9 +43,9 @@ const STAGES: PipelineStage[] = [
     logTitle: 'STAGE_03 // CONTAINERIZATION (DOCKER)',
     scope: 'REPRODUCIBLE BUILD',
     lines: [
-      { prefix: '$ docker build', prefixClass: 'text-emerald-700 font-semibold', text: 'Packaging application runtime into versioned container image.' },
+      { prefix: '$ docker build', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Packaging application runtime into versioned container image.' },
       { prefix: '[layers]', prefixClass: 'text-secondary', text: 'Multi-stage build isolates dependencies and keeps runtime image lean.' },
-      { prefix: '✓ registry:', prefixClass: 'text-emerald-700 font-semibold', text: 'Image tagged and pushed for Kubernetes / cloud deployment.' },
+      { prefix: '✓ registry:', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Image tagged and pushed for Kubernetes / cloud deployment.' },
     ],
   },
   {
@@ -55,9 +55,9 @@ const STAGES: PipelineStage[] = [
     logTitle: 'STAGE_04 // INFRASTRUCTURE_AS_CODE (TERRAFORM)',
     scope: 'GCP & AWS',
     lines: [
-      { prefix: '$ terraform plan', prefixClass: 'text-emerald-700 font-semibold', text: 'Evaluating declarative VPC, compute, IAM, and managed database modules.' },
+      { prefix: '$ terraform plan', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Evaluating declarative VPC, compute, IAM, and managed database modules.' },
       { prefix: '[gcp/aws]', prefixClass: 'text-secondary', text: 'Provisioning cloud infrastructure on GCP and AWS (EC2, RDS, Lambda, S3, ALB) via Terraform.' },
-      { prefix: '✓ state:', prefixClass: 'text-emerald-700 font-semibold', text: 'Infrastructure configuration codified and aligned.' },
+      { prefix: '✓ state:', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Infrastructure configuration codified and aligned.' },
     ],
   },
   {
@@ -69,7 +69,7 @@ const STAGES: PipelineStage[] = [
     lines: [
       { prefix: '[k8s-gcp]', prefixClass: 'text-secondary', text: 'Rolling out containerized workloads to Kubernetes clusters on Google Cloud Platform.' },
       { prefix: '[automation]', prefixClass: 'text-secondary', text: 'Bash operational scripts and CI/CD triggers remove manual deployment steps.' },
-      { prefix: '✓ rollout:', prefixClass: 'text-emerald-700 font-semibold', text: 'Application pods healthy and serving production traffic.' },
+      { prefix: '✓ rollout:', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Application pods healthy and serving production traffic.' },
     ],
   },
   {
@@ -81,7 +81,7 @@ const STAGES: PipelineStage[] = [
     lines: [
       { prefix: '[prometheus]', prefixClass: 'text-secondary', text: 'Scraping container, node, and application health metrics.' },
       { prefix: '[grafana]', prefixClass: 'text-secondary', text: 'Visualizing system telemetry and cluster performance on Grafana dashboards.' },
-      { prefix: '✓ health:', prefixClass: 'text-emerald-700 font-semibold', text: 'Continuous visibility across infrastructure and application tiers.' },
+      { prefix: '✓ health:', prefixClass: 'text-emerald-700 dark:text-emerald-400 font-semibold', text: 'Continuous visibility across infrastructure and application tiers.' },
     ],
   },
 ];
@@ -109,7 +109,7 @@ export default function Workflow() {
       <div className="bg-surface-container-low border border-surface-container-highest p-4 sm:p-6 rounded-lg">
         <div className="text-[11px] font-mono tracking-[0.06em] text-on-surface-variant mb-4 flex flex-wrap items-center justify-between gap-2">
           <span>WORKFLOW SIMULATION (CLICK A STAGE TO INSPECT WORKFLOW DETAILS):</span>
-          <span className="text-emerald-700 font-semibold">END-TO-END AUTOMATION</span>
+          <span className="text-emerald-700 dark:text-emerald-400 font-semibold">END-TO-END AUTOMATION</span>
         </div>
 
         {/* 6 Responsive Stage Buttons */}
@@ -143,7 +143,7 @@ export default function Workflow() {
                 </span>
                 <span
                   className={`block text-[9px] font-mono mt-2 ${
-                    isActive ? 'text-emerald-300' : 'text-secondary'
+                    isActive ? 'text-emerald-300 dark:text-emerald-700' : 'text-secondary'
                   }`}
                 >
                   {stage.badge}

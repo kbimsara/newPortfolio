@@ -3,7 +3,7 @@ import { SignJWT, jwtVerify } from 'jose';
 
 const secret = new TextEncoder().encode(process.env.JWT_SECRET!);
 
-// POST /api/auth  — login
+// POST /api/auth  - login
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
 
@@ -30,14 +30,14 @@ export async function POST(req: NextRequest) {
   return res;
 }
 
-// DELETE /api/auth  — logout
+// DELETE /api/auth  - logout
 export async function DELETE() {
   const res = NextResponse.json({ ok: true });
   res.cookies.set('kb_admin', '', { maxAge: 0, path: '/' });
   return res;
 }
 
-// GET /api/auth  — check session
+// GET /api/auth  - check session
 export async function GET(req: NextRequest) {
   try {
     const token = req.cookies.get('kb_admin')?.value;

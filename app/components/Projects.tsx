@@ -100,7 +100,7 @@ application:
   database: MongoDB`,
   },
   {
-    title: 'TripGo – AI Trip Planner with Geospatial Guardrails',
+    title: 'TripGo - AI Trip Planner with Geospatial Guardrails',
     year: '2025',
     type: 'AI / FULL-STACK',
     description:
@@ -162,7 +162,7 @@ validation:
     stars: null,
   },
   {
-    title: 'QReturn – Lost & Found Web App',
+    title: 'QReturn - Lost & Found Web App',
     year: '2025',
     type: 'RESEARCH PROJECT',
     description:
@@ -186,7 +186,7 @@ validation:
     stars: 1,
   },
   {
-    title: 'OnCloudOTP – Mail Verification SaaS',
+    title: 'OnCloudOTP - Mail Verification SaaS',
     year: '2023',
     type: 'SAAS PROJECT',
     description:

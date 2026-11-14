@@ -74,7 +74,7 @@ export default function Home() {
 
                 {/* Portrait Anchor */}
                 <div className="sm:col-span-4 relative">
-                  <div className="w-full aspect-square overflow-hidden rounded border border-surface-container-highest bg-surface-container relative">
+                  <div className="w-full aspect-square overflow-hidden rounded border border-surface-container-highest dark:border-secondary/40 bg-surface-container relative">
                     <Image
                       src="/b&w.png"
                       alt="Kavindu Bimsara, DevOps Engineer & Software Engineer"
@@ -130,7 +130,7 @@ export default function Home() {
               {/* Direct Hero Actions */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
                 <a
-                  className="px-6 py-3 bg-primary-container text-surface hover:bg-secondary transition-colors duration-150 font-mono text-xs font-medium rounded flex items-center gap-2"
+                  className="px-6 py-3 bg-primary text-surface hover:bg-secondary hover:text-white transition-colors duration-150 font-mono text-xs font-medium rounded flex items-center gap-2"
                   href="#monographs"
                 >
                   <span>Explore Project Dossiers</span>
