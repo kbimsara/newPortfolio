@@ -12,10 +12,13 @@ import Terminal from './components/Terminal';
 import Contact from './components/Contact';
 import TypingText from './components/TypingText';
 import VisitorCounter from './components/VisitorCounter';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function Home() {
   return (
     <div className="min-h-screen relative">
+      <ScrollToTop />
+
       {/* Structural Blueprint Corner Coordinate Overlays */}
       <div className="fixed top-2 left-3 z-50 pointer-events-none hidden 2xl:flex items-center gap-2 text-outline text-[10px] font-mono">
         <span>+ REF: 06°35&apos;N 79°58&apos;E</span>

@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${jetbrainsMono.variable} bg-background bg-grid-blueprint text-on-surface font-sans antialiased relative min-h-screen`}
       >
